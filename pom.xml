@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>expert.ai</groupId>
+	<artifactId>assess-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<!-- The main class to start by executing "java -jar" -->
+		<start-class>expert.ai.SpringBootStarterApi</start-class>
+	</properties>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.0</version>
+	</parent>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>expert.ai</groupId>
+				<artifactId>assess-logic</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>expert.ai</groupId>
+				<artifactId>assess-data</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>expert.ai</groupId>
+				<artifactId>assess-api</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<modules>
+		<module>assess-logic</module>
+		<module>assess-api</module>
+		<module>assess-data</module>
+	</modules>
+	
+</project>
