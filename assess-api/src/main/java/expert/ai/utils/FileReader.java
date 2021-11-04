@@ -15,9 +15,10 @@ public class FileReader {
 
 	@Value("${eai.file-size-limit}")
 	private int fileSizeLimit;
-	
+
 	/**
-	 * Method that extracts text from file 
+	 * Method that extracts text from file
+	 * 
 	 * @param file
 	 * @return Text
 	 * @throws IOException
@@ -32,28 +33,34 @@ public class FileReader {
 		}
 		return text;
 	}
-	
+
 	/**
 	 * Retrieves all files from a particular directory
+	 * 
 	 * @param inputFolder
 	 * @return List<File>
 	 */
-    public List<File> readFiles(String inputFolder) {
+	public List<File> readFiles(String inputFolder) {
 
-        File folder = new File(inputFolder);
-        File[] listOfFiles = null;
-        List<File> files = new ArrayList<>();
+		File folder = new File(inputFolder);
 
-        listOfFiles = folder.listFiles();
+		File[] listOfFiles = null;
+		List<File> files = new ArrayList<>();
 
-        for (File file : listOfFiles) {
-            if (file.isFile()) {
-            	files.add(file);
-            } else {
-                readFiles(file.getPath());
-            }
-        }
-        return files;
-    }
-	
+		if (!folder.exists()) {
+			return files;
+		}
+		
+		listOfFiles = folder.listFiles();
+
+		for (File file : listOfFiles) {
+			if (file.isFile()) {
+				files.add(file);
+			} else {
+				readFiles(file.getPath());
+			}
+		}
+		return files;
+	}
+
 }
