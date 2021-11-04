@@ -39,9 +39,9 @@ public class ResultAnalyzeService {
 	private CategorizerService categorizerService;
 
 	/**
-	 * 
+	 * Creates a full analyze
 	 * @param file
-	 * @return
+	 * @return ResultAnalyze
 	 * @throws IOException 
 	 * @throws NLApiException 
 	 */
@@ -68,6 +68,11 @@ public class ResultAnalyzeService {
 
 	}
 
+	/**
+	 * Finds ResultAnalyze by its id
+	 * @param id
+	 * @return ResultAnalyze
+	 */
 	public ResultAnalyze findResultAnalyzeById(Long id) {
 		return resultAnalyzeRepository.findById(id).get();
 	}
